@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="cc.seedland.oa.slfoundation.MainActivity">
+
+    <cc.seedland.foundation.view.SLTextView
+        android:id="@+id/btn_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Get1"
+        app:fontStyle="en_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.318" />
+
+    <cc.seedland.foundation.view.SLTextView
+        android:id="@+id/btn_get2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fontStyle="en_light"
+        android:text="Test Get2"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <cc.seedland.foundation.view.SLTextView
+        android:id="@+id/btn_get3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Get3"
+        app:fontStyle="en_regular"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <cc.seedland.foundation.view.SLTextView
+        android:id="@+id/btn_get4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Get4"
+        app:fontStyle="en_secondary"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <cc.seedland.foundation.view.SLTextView
+        android:id="@+id/btn_get5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试字体"
+        android:textSize="26sp"
+        app:fontStyle="zh_primary"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+
+    <cc.seedland.foundation.view.SLTextView
+        android:id="@+id/btn_get6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试字体"
+        android:textSize="26sp"
+        app:fontStyle="zh_secondary"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:id="@+id/btn_get7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试字体"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="230dp" />
+</LinearLayout>

@@ -1,0 +1,37 @@
+apply plugin: 'maven'
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+
+//任务名
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //这里的url是nexus中maven-releases的路径，可以点击copy按钮查看复制
+            repository(url: "http://nexus.seedland.cc:8081/repository/sl-foundation/") {
+                // nexus账号
+                authentication(userName: "admin", password: "changeme")
+            }
+
+            // 下面这三项pom参数，在调用的时候是这个样子 ： compile 'cc.seedland.foundation:foundation:1.0.0'
+            // library的包名
+            pom.groupId = 'cc.seedland.foundation'
+            // library的项目名
+            pom.artifactId = 'foundation'
+            // library的版本号
+            pom.version = '1.0.0'
+
+        }
+    }
+}

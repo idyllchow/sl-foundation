@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bar"
+        android:layout_width="fill_parent"
+        android:layout_height="15dp"
+        android:background="@color/registration_title_color"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/state_view"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:background="@color/registration_title_color"
+        android:visibility="gone" />
+
+
+    <RelativeLayout
+        android:id="@+id/registration_time"
+        android:layout_width="fill_parent"
+        android:layout_height="130dp"
+        android:background="@color/registration_title_color">
+
+        <ImageView
+            android:id="@+id/registration_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/registration_time" />
+
+        <TextView
+            android:id="@+id/time_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/registration_icon"
+            android:text=""
+            android:textColor="@color/bg_white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/time_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_big"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/registration_icon"
+            android:singleLine="true"
+            android:text="2015年6月15日"
+            android:textColor="@color/bg_white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/imagezoomdialog_progress"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/registration_remind_layout"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="55dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/remind_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="未启用考勤提醒"
+            android:textColor="@color/location_background" />
+
+        <ImageView
+            android:id="@+id/remind_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/registration_remind" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/location_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/location_background">
+
+        <ImageView
+            android:id="@+id/location_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/registration_location" />
+
+        <TextView
+            android:id="@+id/location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/bg_white"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/loading_location"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/registration_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/location_layout"
+        android:layout_below="@id/registration_time"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+</RelativeLayout>

@@ -1,0 +1,104 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+//        applicationId "cc.seedland.oa.foundation"
+        multiDexEnabled true
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [AMAP_KEY          : "c9953511bee7c846b958a2dc895dbbe1"]
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [AMAP_KEY          : "e5a746a467d3f6be7902cb6b7363e72e"]
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    //上传任务名
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                //这里的url是nexus中maven-releases的路径，可以点击copy按钮查看复制
+                repository(url: MAVEN_REPO_RELEASE_URL) {
+                    // nexus账号
+                    authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+                }
+
+                // 下面这三项pom参数，在调用的时候是这个样子 ： compile 'cc.seedland.foundation:foundation:1.0.0'
+                // library的包名
+                pom.groupId = GROUP_ID
+                // library的项目名
+                pom.artifactId = ARTIFACT_ID
+                // library的版本号
+                pom.version = NEXUS_VERSION
+
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation 'com.squareup.okio:okio:1.13.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation 'com.alibaba:fastjson:1.2.44'
+    implementation ('io.reactivex.rxjava2:rxandroid:2.0.1') {
+        exclude group: "com.android.support"
+    }
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+//    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation('com.jakewharton:disklrucache:2.0.2') {
+        exclude group: "com.android.support"
+    }
+
+    implementation('com.afollestad.material-dialogs:core:0.9.6.0') {
+        exclude group: "com.android.support"
+    }
+    implementation 'com.alibaba:arouter-api:1.3.1'
+    kapt 'com.alibaba:arouter-compiler:1.1.4'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation files('src/main/libs/AMap3DMap_5.3.0_AMapSearch_5.3.0_AMapLocation_3.5.0_20170815.jar')
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SLTextView">
+        <attr name="fontStyle" format="enum">
+            <enum name="en_bold" value="0"/>
+            <enum name="en_light" value="1"/>
+            <enum name="en_regular" value="2"/>
+            <enum name="en_secondary" value="3"/>
+            <enum name="zh_primary" value="4"/>
+            <enum name="zh_secondary" value="5"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
